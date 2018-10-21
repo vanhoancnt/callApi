@@ -1,0 +1,1 @@
+export const API_URL ='http://5bc860828bfe5a00131b6edb.mockapi.io/vanhoancnt/api/v1';
