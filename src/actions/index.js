@@ -15,13 +15,6 @@ export const deleteProduct =(id)=>{
     }
 }
 
-export const editProduct =(id)=>{
-    return {
-        type: types.ACTION_PRODUCT_EDIT,
-        id
-    }
-}
-
 export const listProduct =(products)=>{
     return {
         type: types.ACTION_PRODUCT_LIST,
@@ -63,6 +56,21 @@ export const getItemProductRequest =(id)=>{
     return (dispatch)=>{
         return callApi(`products/${id}`,'GET',null).then(res=>{
             dispatch(getItemProduct(res.data));
+        });
+    }
+}
+
+export const editProduct =(product)=>{
+    return {
+        type: types.ACTION_PRODUCT_EDIT,
+        product
+    }
+}
+
+export const editProductRequest=(product)=>{
+    return (dispatch) =>{
+        return callApi(`products/${product.index}`, 'PUT',product).then(res=>{
+            dispatch(editProduct(product));
         });
     }
 }
